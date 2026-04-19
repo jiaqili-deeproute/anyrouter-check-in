@@ -8,6 +8,32 @@
 
 用于 Claude Code 中转站 Any Router 网站多账号每日签到，一次 $25，限时注册即送 100 美金，[点击这里注册](https://anyrouter.top/register?aff=gSsN)。业界良心，支持 Claude Sonnet 4.5、GPT-5-Codex、Claude Code 百万上下文（使用 `/model sonnet[1m]` 开启），`gemini-2.5-pro` 模型。
 
+## 失效后更新流程
+
+1. 仓库中的"Settings" 选项卡 -> "Environments"
+  
+```json
+[
+  {
+    "name": "any_router",
+    "cookies": {
+      "session": "account1_session_value"
+    },
+    "api_user": "account1_api_user_id"
+  }
+]
+```
+
+- cookies 与 api_user 的值。
+
+  - 通过 F12 工具，切到 Application 面板，拿到 session 的值，最好重新登录下，该值 1 个月有效期，但有可能提前失效，失效后报 401 错误，到时请再重新获取。
+
+![获取 cookies](./assets/request-session.png)
+
+  - 通过 F12 工具，切到 Network 面板，可以过滤下，只要 Fetch/XHR，找到带 `New-Api-User`，这个值正常是 5 位数，如果是负数或者个位数，正常是未登录。
+
+![获取 api_user](./assets/request-api-user.png)
+
 ## 功能特性
 
 - ✅ 多平台（兼容 NewAPI 与 OneAPI）
